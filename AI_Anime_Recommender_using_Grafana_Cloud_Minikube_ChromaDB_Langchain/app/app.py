@@ -1,11 +1,13 @@
-import streamlit as st
-from pipeline.pipeline import AnimeRecommendationPipeline
-from dotenv import load_dotenv
-
 import sys
 import os
+import streamlit as st
+# Ensure project root is on sys.path so sibling packages (pipeline, src, utils) are importable
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from pipeline.pipeline import AnimeRecommendationPipeline
+from dotenv import load_dotenv
 
 
 st.set_page_config(page_title="Anime Recommnder",layout="wide")

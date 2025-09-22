@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Create a directory named - logs
 LOGS_DIR='logs'
-os.mkdirs(LOGS_DIR,exists_ok=True)
+os.makedirs(LOGS_DIR, exist_ok=True)
 
 # Save the logs in the directory
 LOG_FILE= os.path.join(LOGS_DIR, f"log_{datetime.now().strftime('%Y-%m-%d')}.log")
