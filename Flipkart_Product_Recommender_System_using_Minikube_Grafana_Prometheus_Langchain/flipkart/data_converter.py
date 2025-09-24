@@ -4,7 +4,7 @@ from utils.logger import get_logger
 
 logging= get_logger(__name__)
 
-class DocumentConverter:
+class DataConverter:
     def __init__(self, file_path:str):
         self.file_path= file_path
 
