@@ -1,0 +1,51 @@
+2025-09-24 16:53:37,565 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 16:57:43,359 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 16:59:19,770 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 17:00:43,271 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 17:06:25,917 - INFO - PyTorch version 2.7.0 available.
+2025-09-24 17:06:26,977 - INFO - Use pytorch device_name: cpu
+2025-09-24 17:06:26,977 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-09-24 17:10:14,852 - INFO - PyTorch version 2.8.0 available.
+2025-09-24 17:10:15,932 - INFO - Use pytorch device_name: cpu
+2025-09-24 17:10:15,932 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-09-24 17:11:19,225 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 17:11:19,729 - INFO - No valid keyspace found in environment variable.
+2025-09-24 17:11:19,729 - INFO - Detecting API environment 'prod' from supplied endpoint
+2025-09-24 17:11:23,003 - INFO - createCollection('flipkart_database')
+2025-09-24 17:11:44,048 - INFO - HTTP Request: POST https://58aa765b-0d8f-40fd-8bd5-dafefdb28f36-us-east-2.apps.astra.datastax.com/api/json/v1/default_keyspace "HTTP/1.1 200 OK"
+2025-09-24 17:11:44,048 - INFO - finished createCollection('flipkart_database')
+2025-09-24 17:12:46,289 - INFO - PyTorch version 2.8.0 available.
+2025-09-24 17:12:48,115 - INFO - Use pytorch device_name: cpu
+2025-09-24 17:12:48,118 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-09-24 17:12:52,993 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 17:12:53,140 - INFO - No valid keyspace found in environment variable.
+2025-09-24 17:12:53,140 - INFO - Detecting API environment 'prod' from supplied endpoint
+2025-09-24 17:12:55,996 - INFO - createCollection('flipkart_database')
+2025-09-24 17:13:01,055 - INFO - HTTP Request: POST https://58aa765b-0d8f-40fd-8bd5-dafefdb28f36-us-east-2.apps.astra.datastax.com/api/json/v1/default_keyspace "HTTP/1.1 200 OK"
+2025-09-24 17:13:01,055 - INFO - finished createCollection('flipkart_database')
+2025-09-24 17:15:22,769 - INFO - PyTorch version 2.8.0 available.
+2025-09-24 17:15:23,677 - INFO - Use pytorch device_name: cpu
+2025-09-24 17:15:23,677 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-09-24 17:15:28,145 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 17:15:28,320 - INFO - No valid keyspace found in environment variable.
+2025-09-24 17:15:28,320 - INFO - Detecting API environment 'prod' from supplied endpoint
+2025-09-24 17:15:31,530 - INFO - createCollection('flipkart_database')
+2025-09-24 17:15:38,434 - INFO - HTTP Request: POST https://58aa765b-0d8f-40fd-8bd5-dafefdb28f36-us-east-2.apps.astra.datastax.com/api/json/v1/default_keyspace "HTTP/1.1 200 OK"
+2025-09-24 17:15:38,434 - INFO - finished createCollection('flipkart_database')
+2025-09-24 17:15:40,249 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.100:5000
+2025-09-24 17:15:40,249 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-24 17:15:40,288 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-24 17:15:56,656 - INFO - PyTorch version 2.8.0 available.
+2025-09-24 17:15:57,439 - INFO - Use pytorch device_name: cpu
+2025-09-24 17:15:57,439 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-09-24 17:16:02,076 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-24 17:16:02,238 - INFO - No valid keyspace found in environment variable.
+2025-09-24 17:16:02,238 - INFO - Detecting API environment 'prod' from supplied endpoint
+2025-09-24 17:16:05,925 - INFO - createCollection('flipkart_database')
+2025-09-24 17:16:37,971 - INFO - HTTP Request: POST https://58aa765b-0d8f-40fd-8bd5-dafefdb28f36-us-east-2.apps.astra.datastax.com/api/json/v1/default_keyspace "HTTP/1.1 200 OK"
+2025-09-24 17:16:37,972 - INFO - finished createCollection('flipkart_database')
+2025-09-24 17:16:40,117 - WARNING -  * Debugger is active!
+2025-09-24 17:16:40,120 - INFO -  * Debugger PIN: 553-665-308
