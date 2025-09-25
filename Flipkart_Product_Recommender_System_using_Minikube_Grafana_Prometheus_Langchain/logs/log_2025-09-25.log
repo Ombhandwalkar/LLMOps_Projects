@@ -1,0 +1,34 @@
+2025-09-25 18:44:04,099 - INFO - PyTorch version 2.8.0 available.
+2025-09-25 18:44:05,289 - INFO - Use pytorch device_name: cpu
+2025-09-25 18:44:05,289 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-09-25 18:44:10,776 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-25 18:44:11,338 - INFO - No valid keyspace found in environment variable.
+2025-09-25 18:44:11,338 - INFO - Detecting API environment 'prod' from supplied endpoint
+2025-09-25 18:44:14,401 - INFO - createCollection('flipkart_database')
+2025-09-25 18:44:20,148 - INFO - HTTP Request: POST https://58aa765b-0d8f-40fd-8bd5-dafefdb28f36-us-east-2.apps.astra.datastax.com/api/json/v1/default_keyspace "HTTP/1.1 200 OK"
+2025-09-25 18:44:20,150 - INFO - finished createCollection('flipkart_database')
+2025-09-25 18:44:22,673 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.100:5000
+2025-09-25 18:44:22,673 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-25 18:44:22,723 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-25 18:44:46,013 - INFO - PyTorch version 2.8.0 available.
+2025-09-25 18:44:46,911 - INFO - Use pytorch device_name: cpu
+2025-09-25 18:44:46,911 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-09-25 18:44:51,856 - INFO - vector store default init, collection 'flipkart_database'
+2025-09-25 18:44:51,966 - INFO - No valid keyspace found in environment variable.
+2025-09-25 18:44:51,966 - INFO - Detecting API environment 'prod' from supplied endpoint
+2025-09-25 18:44:54,716 - INFO - createCollection('flipkart_database')
+2025-09-25 18:44:57,698 - INFO - HTTP Request: POST https://58aa765b-0d8f-40fd-8bd5-dafefdb28f36-us-east-2.apps.astra.datastax.com/api/json/v1/default_keyspace "HTTP/1.1 200 OK"
+2025-09-25 18:44:57,701 - INFO - finished createCollection('flipkart_database')
+2025-09-25 18:44:59,901 - WARNING -  * Debugger is active!
+2025-09-25 18:44:59,906 - INFO -  * Debugger PIN: 553-665-308
+2025-09-25 18:44:59,981 - INFO - 127.0.0.1 - - [25/Sep/2025 18:44:59] "GET / HTTP/1.1" 200 -
+2025-09-25 18:45:00,763 - INFO - 127.0.0.1 - - [25/Sep/2025 18:45:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-09-25 18:45:02,326 - INFO - 127.0.0.1 - - [25/Sep/2025 18:45:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-25 18:45:26,399 - INFO - cursor fetching a page: (empty page state) from flipkart_database
+2025-09-25 18:45:29,058 - INFO - HTTP Request: POST https://58aa765b-0d8f-40fd-8bd5-dafefdb28f36-us-east-2.apps.astra.datastax.com/api/json/v1/default_keyspace/flipkart_database "HTTP/1.1 200 OK"
+2025-09-25 18:45:29,058 - INFO - cursor finished fetching a page: (empty page state) from flipkart_database
+2025-09-25 18:45:30,023 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-25 18:45:30,086 - INFO - 127.0.0.1 - - [25/Sep/2025 18:45:30] "POST /get HTTP/1.1" 200 -
