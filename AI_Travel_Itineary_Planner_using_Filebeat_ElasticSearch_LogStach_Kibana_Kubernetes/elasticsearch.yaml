@@ -26,21 +26,19 @@ spec:
       labels:
         app: elasticsearch
     spec:
+      # Pod-level security context
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
       containers:
         - name: elasticsearch
           image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
           env:
             - name: discovery.type
               value: single-node
-            # Comprehensive JVM options to disable container detection and JMX
             - name: ES_JAVA_OPTS
-              value: "-Xms512m -Xmx512m -XX:-UseContainerSupport -XX:+IgnoreUnrecognizedVMOptions -Djdk.attach.allowAttachSelf=true -Des.cgroups.enable=false -Dlog4j2.disable.jmx=true -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+              value: "-Xms512m -Xmx512m -Dlog4j2.disable.jmx=true"
             - name: xpack.security.enabled
-              value: "false"
-            # Additional environment variables to prevent cgroup issues
-            - name: ES_TMPDIR
-              value: /tmp
-            - name: ELASTIC_CONTAINER
               value: "false"
           ports:
             - containerPort: 9200
@@ -54,22 +52,10 @@ spec:
           volumeMounts:
             - mountPath: /usr/share/elasticsearch/data
               name: elasticsearch-storage
-            - mountPath: /tmp
-              name: tmp-volume
-          # Security context with proper permissions
-          securityContext:
-            runAsNonRoot: false
-            runAsUser: 1000
-            fsGroup: 1000
-            capabilities:
-              drop:
-                - ALL
       volumes:
         - name: elasticsearch-storage
           persistentVolumeClaim:
             claimName: elasticsearch-pvc
-        - name: tmp-volume
-          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
