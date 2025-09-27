@@ -33,9 +33,12 @@ spec:
             - name: discovery.type
               value: single-node
             - name: ES_JAVA_OPTS
-              value: "-Xms512m -Xmx512m"
+              value: "-Xms512m -Xmx512m -XX:-UseContainerSupport -Djdk.attach.allowAttachSelf=true -Des.cgroups.enable=false -Dlog4j2.disable.jmx=true"
             - name: xpack.security.enabled
               value: "false"
+            # Disable JMX to avoid cgroup issues
+            - name: ES_TMPDIR
+              value: /tmp
           ports:
             - containerPort: 9200
           resources:
@@ -48,10 +51,19 @@ spec:
           volumeMounts:
             - mountPath: /usr/share/elasticsearch/data
               name: elasticsearch-storage
+            - mountPath: /tmp
+              name: tmp-volume
+          # Add security context to handle cgroup access
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            fsGroup: 1000
       volumes:
         - name: elasticsearch-storage
           persistentVolumeClaim:
             claimName: elasticsearch-pvc
+        - name: tmp-volume
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
