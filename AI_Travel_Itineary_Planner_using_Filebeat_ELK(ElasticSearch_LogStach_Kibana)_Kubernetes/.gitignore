@@ -2,3 +2,4 @@ myenv/
 .env
 logs/
 sss.text
+filebeat_explain.txt 
