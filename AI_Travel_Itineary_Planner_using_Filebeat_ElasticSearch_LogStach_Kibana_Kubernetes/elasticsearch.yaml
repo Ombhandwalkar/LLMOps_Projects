@@ -32,13 +32,16 @@ spec:
           env:
             - name: discovery.type
               value: single-node
+            # Comprehensive JVM options to disable container detection and JMX
             - name: ES_JAVA_OPTS
-              value: "-Xms512m -Xmx512m -XX:-UseContainerSupport -Djdk.attach.allowAttachSelf=true -Des.cgroups.enable=false -Dlog4j2.disable.jmx=true"
+              value: "-Xms512m -Xmx512m -XX:-UseContainerSupport -XX:+IgnoreUnrecognizedVMOptions -Djdk.attach.allowAttachSelf=true -Des.cgroups.enable=false -Dlog4j2.disable.jmx=true -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
             - name: xpack.security.enabled
               value: "false"
-            # Disable JMX to avoid cgroup issues
+            # Additional environment variables to prevent cgroup issues
             - name: ES_TMPDIR
               value: /tmp
+            - name: ELASTIC_CONTAINER
+              value: "false"
           ports:
             - containerPort: 9200
           resources:
@@ -53,11 +56,14 @@ spec:
               name: elasticsearch-storage
             - mountPath: /tmp
               name: tmp-volume
-          # Add security context to handle cgroup access
+          # Security context with proper permissions
           securityContext:
-            runAsNonRoot: true
+            runAsNonRoot: false
             runAsUser: 1000
             fsGroup: 1000
+            capabilities:
+              drop:
+                - ALL
       volumes:
         - name: elasticsearch-storage
           persistentVolumeClaim:
