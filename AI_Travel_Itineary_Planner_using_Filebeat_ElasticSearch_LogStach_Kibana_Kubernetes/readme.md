@@ -25,22 +25,3 @@ Our core achievement is demonstrating a **robust, scalable architecture** where 
 ## 🏗️ Kubernetes Deployment Architecture
 
 The entire pipeline is containerized and managed by Kubernetes, enforcing **resource limits**, **service discovery**, and **scalability**.
-
-```mermaid
-graph TD
-    subgraph Kubernetes Cluster (Namespace: logging)
-        subgraph AI Application Pod
-            A[Chatbot Container] -- Logs (stdout/file) --> B(Filebeat Sidecar/DaemonSet);
-        end
-        subgraph Observability Pipeline (ELK)
-            B -- Port 5044 --> C(Logstash Service);
-            C -- Processed Data --> D(Elasticsearch Service);
-            K(Kibana Service) --> D;
-        end
-        
-        style D fill:#dddddd,stroke:#333
-        style A fill:#e6e6ff,stroke:#0000ff
-        style K fill:#ffdddd,stroke:#ff0000
-    end
-    
-    User[End User] -- Accesses UI (NodePort) --> K;

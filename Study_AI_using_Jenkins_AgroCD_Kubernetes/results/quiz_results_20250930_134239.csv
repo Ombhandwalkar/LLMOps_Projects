@@ -1,0 +1,6 @@
+question_number,question,question_type,user_answer,correct_answer,is_correct,options
+1,Who was the founder of the Mauryan Empire?,MCQ,Chandragupta Maurya,Chandragupta Maurya,True,"['Chandragupta Maurya', 'Samudragupta', 'Akbar', 'Babur']"
+2,Who was the founder of the Indus Valley Civilization?,MCQ,Ashoka,Mehrgarh People,False,"['Ashoka', 'Mahatma Gandhi', 'Rama', 'Mehrgarh People']"
+3,Who built the famous Red Fort in India?,MCQ,Aurangzeb,Shah Jahan,False,"['Aurangzeb', 'Akbar', 'Shah Jahan', 'Babur']"
+4,Who was the emperor to have conquered a vast part of India?,MCQ,Akbar,Akbar,True,"['Akbar', 'Babur', 'Ashoka', 'Sher Shah Suri']"
+5,Who was the founder of the Indus Valley Civilization?,MCQ,Ashoka the Great,Mehrgarh settlements founder,False,"['Ashoka the Great', 'Chandragupta Maurya', 'Rani Lakshmibai', 'Mehrgarh settlements founder']"
