@@ -251,29 +251,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Kubernetes community for container orchestration
 - OpenAI for LLM capabilities
 
-## 📚 Documentation
 
-For detailed documentation, please refer to:
-
-- [LangChain Documentation](https://docs.langchain.com/)
-- [Prometheus Documentation](https://prometheus.io/docs/)
-- [Grafana Documentation](https://grafana.com/docs/)
-- [Kubernetes Documentation](https://kubernetes.io/docs/)
-
-## 🗺️ Roadmap
-
-- [ ] Add support for multiple LLM providers
-- [ ] Implement A/B testing framework
-- [ ] Add cost optimization features
-- [ ] Implement caching layer
-- [ ] Add support for batch processing
-- [ ] Enhance security features
-- [ ] Add API rate limiting
-
-## 📞 Support
-
-For support, email your-email@example.com or open an issue in the GitHub repository.
-
----
 
 ⭐ Star this repository if you find it helpful!
+
