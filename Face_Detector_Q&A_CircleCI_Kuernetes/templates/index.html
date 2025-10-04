@@ -2,72 +2,231 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Celebrity Recognition & Q&A</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(251, 113, 133, 0.5); }
+      50% { box-shadow: 0 0 40px rgba(251, 113, 133, 0.8); }
+    }
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    .shimmer {
+      background: linear-gradient(90deg, transparent, rgba(251, 113, 133, 0.3), transparent);
+      background-size: 1000px 100%;
+      animation: shimmer 3s infinite;
+    }
+    .glow-effect {
+      animation: glow 2s ease-in-out infinite;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #fb7185 0%, #fbbf24 50%, #fb7185 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+    .glass-effect {
+      background: rgba(30, 27, 75, 0.4);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(251, 113, 133, 0.2);
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(251, 113, 133, 0.3);
+    }
+    .image-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .image-container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #fb7185, #fbbf24, #34d399, #60a5fa, #fb7185);
+      background-size: 400% 400%;
+      animation: gradient-rotate 4s ease infinite;
+      border-radius: 1rem;
+      z-index: -1;
+    }
+    @keyframes gradient-rotate {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #fb7185;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particle-float 4s ease-in-out infinite;
+      opacity: 0.6;
+    }
+    @keyframes particle-float {
+      0%, 100% { transform: translate(0, 0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translate(100px, -100px); opacity: 0; }
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-950 to-indigo-900 text-white p-6 font-sans min-h-screen">
-  <div class="max-w-5xl mx-auto space-y-8 animate-fadeIn">
-    <h1 class="text-4xl font-extrabold text-center text-rose-400 tracking-tight">🌟 Celebrity Detector + Q&A</h1>
+<body class="relative bg-gradient-to-br from-indigo-950 via-purple-950 to-indigo-900 text-white p-6 font-sans min-h-screen overflow-x-hidden">
+  <!-- Animated background particles -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 80%; top: 30%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 50%; top: 50%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 20%; top: 70%; animation-delay: 1.5s;"></div>
+    <div class="particle" style="left: 90%; top: 60%; animation-delay: 0.5s;"></div>
+  </div>
 
-    <form method="POST" enctype="multipart/form-data" class="flex flex-col items-center gap-4">
-      <input type="file" name="image" accept="image/*" required class="p-2 bg-indigo-900 border border-indigo-700 rounded-lg w-full max-w-md text-sm">
-      <button type="submit" class="bg-rose-500 hover:bg-rose-600 px-6 py-2 rounded-lg text-black font-semibold shadow-md transition">
-        Detect Celebrity
-      </button>
-    </form>
+  <div class="max-w-6xl mx-auto space-y-8 relative z-10">
+    <!-- Header with enhanced styling -->
+    <div class="text-center space-y-4 float-animation">
+      <h1 class="text-6xl md:text-7xl font-extrabold gradient-text tracking-tight mb-2">
+        ✨ Celebrity Detector
+      </h1>
+      <p class="text-rose-300 text-lg font-medium">Powered by AI • Instant Recognition • Smart Q&A</p>
+    </div>
+
+    <!-- Enhanced upload form -->
+    <div class="glass-effect rounded-2xl p-8 hover-lift shadow-2xl">
+      <form method="POST" enctype="multipart/form-data" class="flex flex-col items-center gap-6">
+        <div class="w-full max-w-md">
+          <label class="block text-center text-rose-300 font-semibold mb-3 text-lg">
+            📸 Upload Celebrity Image
+          </label>
+          <input type="file" name="image" accept="image/*" required 
+            class="p-4 bg-gradient-to-r from-indigo-900 to-purple-900 border-2 border-rose-400/50 rounded-xl w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-rose-500 file:text-white file:font-semibold hover:file:bg-rose-600 transition-all cursor-pointer">
+        </div>
+        <button type="submit" class="glow-effect bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 px-10 py-4 rounded-xl text-white font-bold shadow-2xl transition-all transform hover:scale-105 text-lg">
+          🔍 Detect Celebrity
+        </button>
+      </form>
+    </div>
 
     {% if result_img_data %}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <div class="rounded-xl overflow-hidden shadow-lg bg-indigo-900 p-2">
-          <img src="data:image/jpeg;base64,{{ result_img_data }}" alt="Detected Celebrity" class="rounded-lg w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <!-- Enhanced image display -->
+        <div class="image-container rounded-2xl overflow-hidden shadow-2xl p-1 hover-lift">
+          <div class="bg-gradient-to-br from-indigo-900 to-purple-900 p-3 rounded-xl">
+            <img src="data:image/jpeg;base64,{{ result_img_data }}" alt="Detected Celebrity" class="rounded-lg w-full">
+          </div>
         </div>
 
-        <div class="bg-indigo-900 p-6 rounded-xl shadow-md">
-          <h2 class="text-2xl font-semibold text-rose-300 mb-4">📄 Detected Info</h2>
+        <!-- Enhanced info panel -->
+        <div class="glass-effect rounded-2xl p-8 shadow-2xl hover-lift space-y-6">
+          <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-amber-400 mb-6">
+            📋 Celebrity Profile
+          </h2>
 
-          <div class="bg-indigo-950 p-4 rounded-lg border border-indigo-700 space-y-2 text-sm">
+          <div class="bg-gradient-to-br from-indigo-950/80 to-purple-950/80 p-6 rounded-xl border-2 border-rose-400/30 space-y-3 text-sm shimmer">
             {% for line in player_info.splitlines() %}
               {% if "**Full Name**" in line %}
-                <p><strong class="text-rose-400">👤 Full Name:</strong> {{ line.split(':', 1)[-1].strip() }}</p>
+                <div class="flex items-start gap-3 p-3 bg-indigo-900/50 rounded-lg hover:bg-indigo-900/70 transition">
+                  <span class="text-2xl">👤</span>
+                  <div>
+                    <strong class="text-rose-400 text-base">Full Name</strong>
+                    <p class="text-white mt-1">{{ line.split(':', 1)[-1].strip() }}</p>
+                  </div>
+                </div>
               {% elif "**Profession**" in line %}
-                <p><strong class="text-rose-400">🎭 Profession:</strong> {{ line.split(':', 1)[-1].strip() }}</p>
+                <div class="flex items-start gap-3 p-3 bg-indigo-900/50 rounded-lg hover:bg-indigo-900/70 transition">
+                  <span class="text-2xl">🎭</span>
+                  <div>
+                    <strong class="text-rose-400 text-base">Profession</strong>
+                    <p class="text-white mt-1">{{ line.split(':', 1)[-1].strip() }}</p>
+                  </div>
+                </div>
               {% elif "**Nationality**" in line %}
-                <p><strong class="text-rose-400">🌍 Nationality:</strong> {{ line.split(':', 1)[-1].strip() }}</p>
+                <div class="flex items-start gap-3 p-3 bg-indigo-900/50 rounded-lg hover:bg-indigo-900/70 transition">
+                  <span class="text-2xl">🌍</span>
+                  <div>
+                    <strong class="text-rose-400 text-base">Nationality</strong>
+                    <p class="text-white mt-1">{{ line.split(':', 1)[-1].strip() }}</p>
+                  </div>
+                </div>
               {% elif "**Famous For**" in line %}
-                <p><strong class="text-rose-400">⭐ Famous For:</strong> {{ line.split(':', 1)[-1].strip() }}</p>
+                <div class="flex items-start gap-3 p-3 bg-indigo-900/50 rounded-lg hover:bg-indigo-900/70 transition">
+                  <span class="text-2xl">⭐</span>
+                  <div>
+                    <strong class="text-rose-400 text-base">Famous For</strong>
+                    <p class="text-white mt-1">{{ line.split(':', 1)[-1].strip() }}</p>
+                  </div>
+                </div>
               {% elif "**Top Achievements**" in line %}
-                <p><strong class="text-rose-400">🏆 Top Achievements:</strong></p>
-                <ul class="list-disc list-inside text-rose-200 ml-2">
+                <div class="p-3 bg-indigo-900/50 rounded-lg hover:bg-indigo-900/70 transition">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class="text-2xl">🏆</span>
+                    <strong class="text-rose-400 text-base">Top Achievements</strong>
+                  </div>
+                  <ul class="space-y-2 ml-9">
               {% elif line.startswith("  - ") %}
-                <li>{{ line.replace('  - ', '') }}</li>
+                <li class="flex items-start gap-2 text-rose-100">
+                  <span class="text-amber-400 mt-1">•</span>
+                  <span>{{ line.replace('  - ', '') }}</span>
+                </li>
               {% endif %}
             {% endfor %}
             {% if player_info.find("**Top Achievements**") != -1 %}
-              </ul>
+                  </ul>
+                </div>
             {% endif %}
           </div>
 
-          <form method="POST" class="mt-6 space-y-3">
+          <!-- Enhanced Q&A form -->
+          <form method="POST" class="space-y-4 mt-8">
             <input type="hidden" name="player_name" value="{{ player_info.splitlines()[0].split(':')[-1] }}">
             <input type="hidden" name="player_info" value="{{ player_info }}">
             <input type="hidden" name="result_img_data" value="{{ result_img_data }}">
 
-            <input name="question" placeholder="Ask something about this celebrity..." required class="p-3 w-full bg-indigo-800 border border-indigo-700 rounded-lg text-white text-sm">
-            <button type="submit" class="bg-rose-600 hover:bg-rose-700 px-6 py-2 rounded-lg font-medium transition">
-              💬 Ask
+            <div class="relative">
+              <input name="question" placeholder="💭 Ask anything about this celebrity..." required 
+                class="p-4 w-full bg-gradient-to-r from-indigo-900 to-purple-900 border-2 border-rose-400/50 rounded-xl text-white placeholder-rose-300/60 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all">
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-rose-600 to-pink-700 hover:from-rose-700 hover:to-pink-800 px-6 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg text-base">
+              💬 Get Answer
             </button>
           </form>
 
           {% if answer %}
-            <div class="answer-box mt-6 text-rose-200 text-sm">
-              <strong class="text-white">Answer:</strong><br>{{ answer }}
+            <div class="mt-6 p-6 bg-gradient-to-br from-emerald-900/50 to-teal-900/50 border-2 border-emerald-400/30 rounded-xl shadow-lg hover-lift">
+              <div class="flex items-start gap-3">
+                <span class="text-3xl">🤖</span>
+                <div>
+                  <strong class="text-emerald-300 text-lg block mb-2">AI Response</strong>
+                  <p class="text-white leading-relaxed">{{ answer }}</p>
+                </div>
+              </div>
             </div>
           {% endif %}
         </div>
       </div>
     {% endif %}
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center mt-16 pb-8 text-rose-300/60 text-sm">
   </div>
 </body>
 </html>

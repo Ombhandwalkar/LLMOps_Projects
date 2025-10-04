@@ -1,6 +1,6 @@
 from io import BytesIO # Creates a memory buffer to store the binary file.
 import numpy as np
-import opencv
+import cv2
 
 
 def process_image(image_file):
@@ -9,15 +9,15 @@ def process_image(image_file):
     image_file.save(in_memory_file)
 
     # Getting raw values of Binary file
-    image_byte= in_memory_file.get_values()
+    image_byte= in_memory_file.getvalue()
     # Converting raw values into ND-Array
-    nparr= np.frombuffer(image_byte, np.unit8)
+    nparr= np.frombuffer(image_byte, np.int8)
 
     # Decode ND-Arry into OpenCV image
     img= cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
     # Converts image to GRAYSCALE,it works better on grayscale iamges.
-    gray= cv3.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Load pre-trained Haar-Cascade-Classifier for detecting faces.
     face_cascade= cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
