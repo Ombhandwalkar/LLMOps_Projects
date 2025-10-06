@@ -116,7 +116,8 @@ The CircleCI pipeline consists of three main jobs:
 checkout_code → build_docker_image → deploy_to_gke
 ```
 
-
+## CircleCI workflow-👇
+![alt text](screenshot/fourth.png)
 
 ## Kubernetes Deployment
 
