@@ -219,7 +219,7 @@ requests
 **Model**: `meta-llama/llama-4-maverick-17b-128e-instruct`
 
 **Celebrity Detection**:
-- Temperature: 0.3
+- Temperature: 0.1
 - Max Tokens: 1024
 
 **Q&A Engine**:
