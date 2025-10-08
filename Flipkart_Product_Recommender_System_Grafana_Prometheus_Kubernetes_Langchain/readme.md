@@ -11,7 +11,7 @@ This project demonstrates a complete LLMOps pipeline for building an intelligent
 - **LLM-Powered Recommendations**: Utilizes LangChain for intelligent product recommendations
 - **Scalable Architecture**: Deployed on Kubernetes for horizontal scaling
 - **Comprehensive Monitoring**: Real-time metrics collection with Prometheus
-- **Visual Dashboards**: Custom Grafana dashboards for system observability
+- **Visual Dashboards**: Custom Grafana dashboards for system observability     
 - **Production-Ready**: Complete MLOps/LLMOps pipeline with monitoring and alerting
 
 ## 🎥 Demo Video
