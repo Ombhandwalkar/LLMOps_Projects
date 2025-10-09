@@ -9,7 +9,7 @@ A production-ready AI-powered travel itinerary planner that leverages Large Lang
 - **Centralized Logging**: Logstash processes and enriches log data for better insights
 - **Data Storage & Search**: Elasticsearch stores and indexes logs for fast retrieval and analysis
 - **Visual Analytics**: Kibana provides interactive dashboards for monitoring application performance and user behavior
-- **Container Orchestration**: Kubernetes manages the deployment, scaling, and operations of all services
+- **Container Orchestration**: Kubernetes manages the deployment, scaling, and operations of all services       
 - **LLMOps Integration**: Monitoring and observability for LLM operations and performance
 
 ## 🏗️ Architecture
