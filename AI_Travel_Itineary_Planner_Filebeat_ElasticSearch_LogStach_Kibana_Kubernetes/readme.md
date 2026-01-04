@@ -293,25 +293,3 @@ kubectl logs -f statefulset/elasticsearch
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Authors
-
-- **Om Bhandwalkar** - [GitHub](https://github.com/Ombhandwalkar)
-
-## 🙏 Acknowledgments
-
-- OpenAI/Anthropic for LLM APIs
-- Elastic for the ELK Stack
-- Kubernetes community
-- All contributors and supporters
-
-## 📞 Contact
-
-For questions or support, please open an issue or contact  ombhandwalkar38126@gmail.com
-
----
-
-**Note**: This is a learning project demonstrating LLMOps practices with production-grade logging and monitoring infrastructure.
